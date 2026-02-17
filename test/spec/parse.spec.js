@@ -37,6 +37,15 @@ describe('parse', () => {
   });
 
   it('should handle Basic', () => {
+    const result = parse('Basic');
+    expect(result).toEqual({
+      scheme: 'Basic',
+      token: null,
+      params: {},
+    });
+  });
+
+  it('should handle Basic with credentials', () => {
     const result = parse('Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
     expect(result).toEqual({
       scheme: 'Basic',

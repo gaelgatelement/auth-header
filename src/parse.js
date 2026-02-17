@@ -51,7 +51,10 @@ export default (str: string): Result => {
     throw new TypeError('Header value must be a string.');
   }
 
-  const start = str.indexOf(' ');
+  let start = str.indexOf(' ');
+  if (start === -1) {
+    start = str.length;
+  }
   const scheme = str.substr(0, start);
 
   if (!isScheme(scheme)) {
